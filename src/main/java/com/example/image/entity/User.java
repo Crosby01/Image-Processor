@@ -1,5 +1,5 @@
 
-package com.example.imageprocessor.entity;
+package com.example.image.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

@@ -1,4 +1,4 @@
-package com.example.imageprocessor.dto;
+package com.example.image.dto;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.example.imageprocessor.dto;
+package com.example.image.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

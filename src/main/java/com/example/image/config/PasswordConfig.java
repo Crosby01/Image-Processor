@@ -1,4 +1,4 @@
-package com.example.imageprocessor.config;
+package com.example.image.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

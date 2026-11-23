@@ -1,10 +1,10 @@
 
-package com.example.imageprocessor.service;
+package com.example.image.service;
 
-import com.example.imageprocessor.dto.RegisterRequest;
-import com.example.imageprocessor.dto.UserResponse;
-import com.example.imageprocessor.entity.User;
-import com.example.imageprocessor.repository.UserRepository;
+import com.example.image.dto.RegisterRequest;
+import com.example.image.dto.UserResponse;
+import com.example.image.entity.User;
+import com.example.image.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

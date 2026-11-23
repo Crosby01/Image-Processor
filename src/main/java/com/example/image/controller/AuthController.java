@@ -1,9 +1,9 @@
 
-package com.example.imageprocessor.controller;
+package com.example.image.controller;
 
-import com.example.imageprocessor.dto.RegisterRequest;
-import com.example.imageprocessor.dto.UserResponse;
-import com.example.imageprocessor.service.UserService;
+import com.example.image.dto.RegisterRequest;
+import com.example.image.dto.UserResponse;
+import com.example.image.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
