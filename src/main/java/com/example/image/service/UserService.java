@@ -1,10 +1,13 @@
 
 package com.example.image.service;
 
+import com.example.image.dto.LoginRequest;
+import com.example.image.dto.LoginResponse;
 import com.example.image.dto.RegisterRequest;
 import com.example.image.dto.UserResponse;
 import com.example.image.entity.User;
 import com.example.image.repository.UserRepository;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +16,15 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public UserService(
             UserRepository userRepository,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
     public UserResponse createUser(RegisterRequest request) {
@@ -43,5 +49,21 @@ public class UserService {
                 savedUser.getEmail(),
                 savedUser.getCreatedAt()
         );
+    }
+
+    public LoginResponse login(LoginRequest request) {
+
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid email or password")
+                );
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("Invalid email or password");
+        }
+
+        String token = jwtService.generateToken(user.getEmail());
+
+        return new LoginResponse(token);
     }
 }
